@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR Business Card</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <a-marker type="pattern" url="pattern-marker.patt">
+        
+        <a-box position="0 0.5 0" material="color: #4CC3D9; opacity: 0.8" 
+               animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+        </a-box>
+
+        <a-text value="YOUR NAME" position="0 1.2 -0.5" align="center" color="#000" scale="1.5 1.5 1.5"></a-text>
+
+        <a-text value="Creative Developer" position="0 0.9 -0.5" align="center" color="#333" scale="0.8 0.8 0.8"></a-text>
+
+        <a-sphere position="-0.6 0.2 0.5" radius="0.2" color="#25D366" 
+                  class="clickable"
+                  onclick="window.location.href='https://wa.me/1234567890'">
+        </a-sphere>
+        <a-text value="WhatsApp" position="-0.6 -0.1 0.5" align="center" scale="0.5 0.5 0.5" color="#000"></a-text>
+
+        <a-sphere position="0.6 0.2 0.5" radius="0.2" color="#E1306C" 
+                  class="clickable"
+                  onclick="window.location.href='https://instagram.com/yourusername'">
+        </a-sphere>
+        <a-text value="Instagram" position="0.6 -0.1 0.5" align="center" scale="0.5 0.5 0.5" color="#000"></a-text>
+
+      </a-marker>
+
+      <a-entity camera>
+        <a-cursor fuse="false" raycaster="objects: .clickable"></a-cursor>
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
